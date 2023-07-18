@@ -1,0 +1,356 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+  background-color: #4a4e69;
+  color: #f2e9e4;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 1rem;
+  min-width: 300px;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+.createToDo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: rgba(42, 42, 42, 0.2) 0px 8px 24px;
+  color: #f2e9e4;
+  font-size: 20px;
+  background-color: #e36414;
+  cursor: pointer;
+  transition: 300ms;
+  transform: rotate(0);
+  transition: .3s ease;
+}
+
+.createToDo:hover {
+  transform: rotate(224deg);
+  color: #fb8b24;
+  background-color: #f2e9e4;
+}
+
+.modalBackground {
+  background-color: rgba(32, 35, 41, .8);
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.toDoTitle {
+  text-align: center;
+  color: white;
+  font-style: italic;
+}
+
+.toDoTitleLoading {
+  opacity: 25%;
+}
+
+.toDoCount {
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.561);
+}
+
+.toDoCountLoading {
+  opacity: 25%;
+}
+.toDoSearchContainer {
+  width: 85%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #22223b;
+  padding: 0 0.5rem;
+  border-radius: 0.3rem;
+  font-size: 1.4rem;
+}
+
+.toDoSearch { 
+  width: 90%;
+  height: 40px;
+  border: none;
+  color: #f2e9e4;
+  background-color: #22223b;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+.toDoSearchDisabled {
+  background: linear-gradient(90deg, #22223b, #22223b88);
+  background-size: 400% 400%;
+  animation: loadingAnimation 1.5s ease-in-out infinite;
+}
+.toDoSearch:disabled {
+  opacity: 0%;
+}
+
+.toDoSearch:disabled ~ .toDoSearchIcon {
+  opacity: 25%;
+}
+
+.toDoSearch::placeholder {
+  color: rgba(255, 255, 255, 0.561);;
+  font-family: 'Nunito', sans-serif;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.toDoLoadingContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.toDoItemLoading {
+  width: 100%;
+  height: 3.9rem;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  background-color: #22223b;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #22223b, #22223b88);
+  background-size: 400% 400%;
+  animation: loadingAnimation 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingAnimation {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
+
+.toDoSection {
+  width: 85%;
+  border-radius: 5px;
+}
+
+.toDoList {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0 1rem;
+  gap: 1rem;
+  list-style: none;
+}
+
+.toDoItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #22223b;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 0.5rem;
+}
+.toDo {
+  text-align: center;
+  width: 60%;
+  font-size: 1.2em;
+  box-sizing: border-box;
+}
+.toDoCheckBox {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.toDoCheckBox:hover {
+  opacity: 0.7;
+}
+
+.toDoCheck {
+  color: #70e000;
+}
+
+.toDoCompleted {
+  text-decoration: 0.17rem line-through #e36414;
+}
+
+.toDoDelete {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.toDoDelete:hover {
+  color: rgba(255, 255, 255, 0.548);
+}
+.toDoHeaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.toDoHeader {
+  align-self: flex-start;
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 700;
+  color: white;
+  padding: 0.3rem 0 0 0.3rem;
+}
+
+
+.toDoHeader a {
+  text-transform: none;
+  color: white;
+  text-decoration: none;
+}
+
+.toDoHeader a:hover {
+  color: #fb8b24;
+}
+.toDoFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 300px;
+  max-width: 600px;
+} 
+
+.toDoForm {
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  box-sizing: border-box;
+  max-width: 540px;
+  background-color: white;
+  border-radius: 0.3rem;
+}
+
+.toDoLabel {
+  color: #22223b;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.toDoTextArea {
+  width: 85%;
+  font-size: 1.2rem;
+  color: #22223b;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  transition: .3s all;
+}
+
+.toDoTextArea::placeholder {
+  font-size: 1.2rem;
+}
+
+.toDoTextArea:focus {
+  outline: none;
+  border-radius: 0.3rem;
+}
+
+.toDoButtoms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 2rem;
+}
+
+.toDoBtn {
+  width: 25%;
+  outline: none;
+  border: 1px solid rgb(118, 118, 118);
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.toDoCancel {
+  color: #22223b;
+}
+.toDoCancel:hover {
+  border-color: #e36414;
+  color: #e36414;
+}
+
+.toDoSubmit {
+  color: #22223b;
+}
+
+.toDoSubmit:hover {
+  color: white;
+  border-color: #70e000;
+  background-color: #70e000;
+}
+.toDoFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.561);
+}
+
+.toDoFooter a {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.561);
+  text-decoration: none;
+  text-transform: none;
+}
+
+.toDoFooter a:hover {
+  color: white;
+}
+
+.toDoFooter a:last-child{
+  display: flex;
+  font-size: 1.4rem;
+}
