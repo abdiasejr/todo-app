@@ -1,4 +1,4 @@
-import { useToDos } from './CustomHooks/UseToDos'
+import { useToDos } from './customHooks'
 import { ToDoHeader, ToDoCounter, ToDoError, ToDoForm, ToDoItem, ToDoFooter, ToDoList, ToDoLoading, ToDoSearch, Modal, CreateToDoButtom, EmptyToDos } from './components'
 import { SiTodoist } from 'react-icons/si'
 
